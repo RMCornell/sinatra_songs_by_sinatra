@@ -5,8 +5,17 @@ get '/' do
   erb :home
 end
 
+get '/about' do
+  erb :about
+end
+
+get '/contact' do
+  erb :contact
+end
+
+
 __END__
-@@home
+@@layout
 <% title = "Songs by Sinatra" %>
 <!doctype html>
 <html lang="en">
@@ -27,7 +36,15 @@ __END__
     </nav>
   </header>
   <section>
-    <p>Welcome to this website about the songs of the great Frank Sinatra</p>
+    <%= yield %>
   </section>
 </body>
 </html>
+@@home
+<p>Welcome to this website about the songs of the great Frank Sinatra</p>
+
+@@about
+<p>This site is a demonstration of how to build a website using Sinatra.</p>
+
+@@contact
+<p>You can contact me by sending me an email at zen . alchemist at gmail.com</p>
